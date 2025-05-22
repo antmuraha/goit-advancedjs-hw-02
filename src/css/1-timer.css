@@ -1,0 +1,58 @@
+@import 'flatpickr/dist/flatpickr.min.css';
+@import 'izitoast/dist/css/iziToast.min.css';
+
+body {
+  --font: 'Poppins', sans-serif;
+
+  font-family: var(--font);
+  background-color: #f0f0f0;
+  color: #333;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+input {
+  font-family: var(--font);
+  color: #333;
+}
+
+input#datetime-picker:disabled {
+  background-color: #e0e0e0;
+  color: #999;
+  cursor: not-allowed;
+}
+
+#app {
+  min-width: 200px;
+  padding: 1rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.timer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+
+.timer .field {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  letter-spacing: -0.5px;
+}
+
+.timer .field .value {
+  font-size: 2em;
+}
+
+.timer .field .label {
+  font-size: 0.7em;
+  text-transform: uppercase;
+}

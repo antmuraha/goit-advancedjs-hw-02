@@ -1,0 +1,21 @@
+{
+  "name": "goit-advancedjs-hw-01",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build --base=/",
+    "preview": "vite preview",
+    "format": "prettier --write \"src/**/*.{js,css,html}\""
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.17",
+    "prettier": "^3.5.3",
+    "vite": "^6.3.5"
+  },
+  "dependencies": {
+    "flatpickr": "^4.6.13",
+    "izitoast": "^1.4.0"
+  }
+}

@@ -1,0 +1,27 @@
+@import 'izitoast/dist/css/iziToast.min.css';
+
+body {
+  --font: 'Poppins', sans-serif;
+
+  font-family: var(--font);
+  background-color: #f0f0f0;
+  color: #333;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+input {
+  font-family: var(--font);
+  color: #333;
+}
+
+#app {
+  min-width: 200px;
+  padding: 1rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
