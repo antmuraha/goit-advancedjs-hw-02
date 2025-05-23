@@ -1,31 +1,60 @@
-import iziToast from "izitoast";
+import iziToast from 'izitoast';
 
+iziToast.settings({
+  position: 'topRight',
+  timeout: 2000,
+  close: false,
+  progressBar: false,
+  transitionIn: 'bounceInUp',
+  transitionOut: 'fadeOutDown',
+});
 
-// `✅ Fulfilled promise in ${delay}ms`
+const colorMap = {
+  success: '#4caf50',
+  error: '#f44336',
+};
+const iconMap = {
+  success: 'fas fa-check',
+  error: 'fas fa-times',
+};
 
-// `❌ Rejected promise in ${delay}ms`
-
-function initSnackbar() {
-  iziToast.settings({
-    position: "topRight",
-    timeout: 20000,
-    close: false,
-    progressBar: false,
-    icon: undefined,
-    // transitionIn: "fadeInDown",
-    // transitionOut: "fadeOutUp",
-  });
-}
-function showSnackbar(message, type = "success") {
+function showSnackbar(message, type = 'success') {
   iziToast[type]({
     message: message,
-    class: type,
-    icon: type === "success" ? "fas fa-check" : "fas fa-times",
-    progressBarColor: type === "success" ? "#4caf50" : "#f44336",
+    icon: iconMap[type] || 'fas fa-info',
+    iconColor: colorMap[type] || '#ddd',
+    progressBarColor: colorMap[type] || '#ddd',
   });
 }
 
-initSnackbar();
+const toastMap = {
+  fulfilled: delay =>
+    new Promise(resolve =>
+      setTimeout(() => {
+        showSnackbar(`Fulfilled promise in ${delay}ms`);
+        resolve(delay);
+      }, delay)
+    ),
+  rejected: delay =>
+    new Promise((_, reject) =>
+      setTimeout(() => {
+        showSnackbar(`Rejected promise in ${delay}ms`, 'error');
+        reject(delay);
+      }, delay)
+    ),
+};
 
-showSnackbar("This is a success message", "success");
-showSnackbar("This is an error message", "error");
+function initializeSnackbar() {
+  const formElement = document.querySelector('.form');
+
+  formElement?.addEventListener('submit', event => {
+    event.preventDefault();
+    const formData = new FormData(formElement);
+    const data = Object.fromEntries(formData.entries());
+    console.log('Form data:', data);
+
+    toastMap[data.state](data.delay);
+  });
+}
+
+initializeSnackbar();

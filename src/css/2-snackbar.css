@@ -1,11 +1,16 @@
 @import 'izitoast/dist/css/iziToast.min.css';
+@import '@fortawesome/fontawesome-free/css/all.min.css';
 
 body {
   --font: 'Poppins', sans-serif;
+  --color-black: #333;
+  --snackbar-success: #4caf50;
+  --snackbar-error: #f44336;
 
   font-family: var(--font);
+  font-size: 16px;
   background-color: #f0f0f0;
-  color: #333;
+  color: var(--color-black);
 
   display: flex;
   align-items: flex-start;
@@ -15,7 +20,8 @@ body {
 
 input {
   font-family: var(--font);
-  color: #333;
+  color: var(--color-black);
+  padding: 6px 8px;
 }
 
 #app {
@@ -24,4 +30,16 @@ input {
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form_delay-field {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
